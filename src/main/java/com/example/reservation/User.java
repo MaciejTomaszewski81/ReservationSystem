@@ -2,8 +2,12 @@ package com.example.reservation;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-public class Users {
+@Table(name="user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,15 +21,19 @@ public class Users {
 
     private int phoneNumber;
 
-    public Users() {
+    @OneToMany
+    private List<Treatment> treatment = new ArrayList<>();
+
+
+    public User() {
     }
 
-    public Users(Long id, String firstName, String lastName, String mail, int phoneNumber) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mail = mail;
-        this.phoneNumber = phoneNumber;
+    public List<Treatment> getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(List<Treatment> treatment) {
+        this.treatment = treatment;
     }
 
     public Long getId() {

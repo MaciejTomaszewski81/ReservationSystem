@@ -1,39 +1,24 @@
 package com.example.reservation;
 
-import jakarta.persistence.*;
+public enum Treatments {
+    PHYSIOTHERAPY_CONSULTATION("Konsultacja fizjoterapeutyczna"),
+    INDIVIDUAL_THERAPY("Terapia indywidualna"),
+    CLASSIC_MASSAGE("Masaż klasyczny"),
+    DEEP_MASSAGE("Masaż głęboki"),
+    UROGYNECOLOGICAL_CONSULTATION("Konsultacja uroginekologiczna"),
+    UROGYNECOLOGICAL_THERAPY("Terapia uroginekologiczna"),
+    KINESIOLOGY_TAPING("Kinesiology Taping"),
+    EXERCISE_INSTRUCTIONS("Instruktaż ćwiczeń");
 
-@Entity
-public class Treatments {
+    private final String translation;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String treatmentName;
-
-    private int treatmentTime;
-
-    public Long getId() {
-        return id;
+    Treatments(String translation) {
+        this.translation = translation;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return translation;
     }
 
-    public String getTreatmentName() {
-        return treatmentName;
-    }
-
-    public void setTreatmentName(String treatmentName) {
-        this.treatmentName = treatmentName;
-    }
-
-    public int getTreatmentTime() {
-        return treatmentTime;
-    }
-
-    public void setTreatmentTime(int treatmentTime) {
-        this.treatmentTime = treatmentTime;
-    }
 }
