@@ -8,9 +8,11 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final TreatmentRepository treatmentRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, TreatmentRepository treatmentRepository) {
         this.userRepository = userRepository;
+        this.treatmentRepository = treatmentRepository;
     }
 
     public User addUser(User user){
@@ -20,6 +22,10 @@ public class UserService {
     public List<User>findAll(){
         return userRepository.findAll();
     }
+
+//    public List<Treatment>findAll()
+
+
 
 
 }

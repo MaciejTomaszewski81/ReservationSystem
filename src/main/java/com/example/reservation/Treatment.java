@@ -2,25 +2,27 @@ package com.example.reservation;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.scheduling.config.Task;
-
-import java.util.UUID;
-
 @Entity
-@Table(name="treatment")
 public class Treatment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    private String treatment;
+
     @Enumerated(EnumType.STRING)
     private Treatments treatments;
 
     private int treatmentTime;
+
+//    public String getTreatment() {
+//        return treatment;
+//    }
+//
+//    public void setTreatment(String treatment) {
+//        this.treatment = treatment;
+//    }
 
     public Treatment() {
     }
@@ -45,7 +47,7 @@ public class Treatment {
         return treatmentTime;
     }
 
-    public void setTreatmentTime(int treatmentTime) {
-        this.treatmentTime = treatmentTime;
+    public void setTreatmentTime(int treatmenttime) {
+        this.treatmentTime = treatmenttime;
     }
 }

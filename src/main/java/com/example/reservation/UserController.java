@@ -2,10 +2,7 @@ package com.example.reservation;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -16,11 +13,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/home")
-    public String home(Model model) {
-        List<User> all = userService.findAll();
-        model.addAttribute("users",all);
-        return  "home";
+    @GetMapping("/users")
+    public String allUsers(Model model) {
+        model.addAttribute("user",userService.findAll());
+        return "users";
     }
 
     @GetMapping("/add-user")

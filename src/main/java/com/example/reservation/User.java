@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="user")
 public class User {
 
     @Id
@@ -48,16 +47,16 @@ public class User {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String first) {
+        this.firstName = first;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String last) {
+        this.lastName = last;
     }
 
     public String getMail() {
@@ -72,7 +71,7 @@ public class User {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(int phone) {
+        this.phoneNumber = phone;
     }
 }

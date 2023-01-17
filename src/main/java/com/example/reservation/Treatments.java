@@ -1,5 +1,6 @@
 package com.example.reservation;
 
+
 public enum Treatments {
     PHYSIOTHERAPY_CONSULTATION("Konsultacja fizjoterapeutyczna"),
     INDIVIDUAL_THERAPY("Terapia indywidualna"),
