@@ -1,5 +1,7 @@
-package com.example.reservation;
+package com.example.reservation.web;
 
+import com.example.reservation.user.User;
+import com.example.reservation.user.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

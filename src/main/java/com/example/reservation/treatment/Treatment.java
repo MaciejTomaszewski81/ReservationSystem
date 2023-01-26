@@ -1,4 +1,4 @@
-package com.example.reservation;
+package com.example.reservation.treatment;
 
 
 import jakarta.persistence.*;
@@ -9,20 +9,20 @@ public class Treatment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    private String treatment;
+    private String treatment;
 
-    @Enumerated(EnumType.STRING)
-    private Treatments treatments;
+//    @Enumerated(EnumType.STRING)
+//    private Treatments treatments;
 
     private int treatmentTime;
 
-//    public String getTreatment() {
-//        return treatment;
-//    }
-//
-//    public void setTreatment(String treatment) {
-//        this.treatment = treatment;
-//    }
+    public String getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(String treatment) {
+        this.treatment = treatment;
+    }
 
     public Treatment() {
     }
@@ -35,13 +35,13 @@ public class Treatment {
         this.id = id;
     }
 
-    public Treatments getTreatments() {
-        return treatments;
-    }
-
-    public void setTreatments(Treatments treatments) {
-        this.treatments = treatments;
-    }
+//    public Treatments getTreatments() {
+//        return treatments;
+//    }
+//
+//    public void setTreatments(Treatments treatments) {
+//        this.treatments = treatments;
+//    }
 
     public int getTreatmentTime() {
         return treatmentTime;

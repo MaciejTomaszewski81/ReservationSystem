@@ -1,4 +1,4 @@
-package com.example.reservation;
+package com.example.reservation.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

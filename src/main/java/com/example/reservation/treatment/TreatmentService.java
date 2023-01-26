@@ -1,4 +1,4 @@
-package com.example.reservation;
+package com.example.reservation.treatment;
 
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,4 @@ public class TreatmentService {
     public List<Treatment> showAll(){
         return treatmentRepository.findAll();
     }
-
-
 }

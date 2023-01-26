@@ -1,4 +1,4 @@
-package com.example.reservation;
+package com.example.reservation.treatment;
 
 public enum TreatmentTime {
 
@@ -18,5 +18,4 @@ public enum TreatmentTime {
     public String toString() {
         return translation;
     }
-
 }

@@ -1,9 +1,12 @@
-package com.example.reservation;
+package com.example.reservation.user;
 
+import com.example.reservation.treatment.Treatment;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -19,6 +22,32 @@ public class User {
     private String mail;
 
     private int phoneNumber;
+
+    private String pass;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    private Set<UserRole> roles = new HashSet<>();
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public Set<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<UserRole> roles) {
+        this.roles = roles;
+    }
 
     @OneToMany
     private List<Treatment> treatment = new ArrayList<>();

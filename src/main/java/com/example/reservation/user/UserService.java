@@ -1,5 +1,6 @@
-package com.example.reservation;
+package com.example.reservation.user;
 
+import com.example.reservation.treatment.TreatmentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,8 +25,4 @@ public class UserService {
     }
 
 //    public List<Treatment>findAll()
-
-
-
-
 }
