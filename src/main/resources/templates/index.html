@@ -10,22 +10,18 @@
 </head>
 <body>
 <div class="buttons">
-    <button href="/login" type="button" class="btn btn-outline-success">Zaloguj się</button>
-    <button type="button" class="btn btn-outline-success">Zarejestruj się</button>
-    <a href="/login">Zaloguj</a>
-    <a th:href="@{/logout}" delete-cookies="JSESSIONID">wyloguj się</a>
-
-<p>Pacan</p>
-<div class="list-group">
-    <ul>
-        <ul class="list-group-item d-flex justify-content-between align-items-center"
-            th:each="t : ${treatmentWithoutPrice}">
-            <!--    th:each="t: ${T(com.example.reservation.treatment.Treatments).values()}">-->
-            <!--        <span th:text="${t}"></span>-->
-            <span th:text="${t.treatment}"></span>
+    <a href="/login" type="button" class="btn btn-outline-success">Zaloguj się</a>
+    <a type="button" class="btn btn-outline-success">Zarejestruj się</a>
+    <div class="list-group">
+        <ul>
+            <ul class="list-group-item d-flex justify-content-between align-items-center"
+                th:each="t : ${treatmentWithoutPrice}" >
+                <!--    th:each="t: ${T(com.example.reservation.treatment.Treatments).values()}">-->
+                <!--        <span th:text="${t}"></span>-->
+                <span th:text="${t.treatment}"></span>
+            </ul>
         </ul>
-    </ul>
-</div>
+    </div>
 </div>
 </body>
 </html>

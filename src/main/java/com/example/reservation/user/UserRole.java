@@ -1,17 +1,27 @@
 package com.example.reservation.user;
 
+import com.example.reservation.security.Role;
 import jakarta.persistence.*;
 @Entity
-@Table(name = "user_role")
 public class UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @ManyToOne
+    private User user;
 
-    private String description;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public UserRole() {
+    }
+
+    public UserRole(User user, Role role) {
+        this.user = user;
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
@@ -21,19 +31,19 @@ public class UserRole {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public User getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getDescription() {
-        return description;
+    public Role getRole() {
+        return role;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

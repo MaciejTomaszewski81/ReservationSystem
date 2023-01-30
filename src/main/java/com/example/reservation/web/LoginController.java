@@ -20,7 +20,7 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     String welcomePage(Model model) {
         model.addAttribute("treatmentWithoutPrice", treatmentService.showAll());
         return "index";

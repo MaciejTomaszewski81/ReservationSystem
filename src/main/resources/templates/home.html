@@ -10,12 +10,7 @@
 </head>
 <body>
 <h1 th:text="${welcomeMessage}">Hello</h1>
-
-<!--<a sec:authorize="isAuthenticated()"-->
-<!--   th:text="|Wyloguj się ${#authentication.name}|"></a>-->
-<a th:href="@{/logout}" delete-cookies="JSESSIONID">wyloguj się</a>
-<!--</a>-->
-
+<a th:href="@{/logout}">wyloguj się</a>
 <div class="list-group">
     <ul>
         <ul class="list-group-item d-flex justify-content-between align-items-center"

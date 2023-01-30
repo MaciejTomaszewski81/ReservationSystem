@@ -2,7 +2,6 @@ package com.example.reservation.web;
 
 import com.example.reservation.treatment.TreatmentService;
 import com.example.reservation.WelcomeMessageService;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +18,9 @@ public class TreatmentController {
     }
 
     @GetMapping("/home")
-    public String allTreatments(Authentication authentication, Model model){
+    public String allTreatments(Model model){
         String welcomeMessage = welcomeMessageService.getWelcomeMessage();
         model.addAttribute("welcomeMessage",welcomeMessage);
-        model.addAttribute("username", authentication.getName());
         model.addAttribute("treatment", treatmentService.showAll());
         return "home";
     }

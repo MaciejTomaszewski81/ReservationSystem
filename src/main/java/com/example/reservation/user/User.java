@@ -4,11 +4,11 @@ import com.example.reservation.treatment.Treatment;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "application_user")
 public class User {
 
     @Id
@@ -23,45 +23,19 @@ public class User {
 
     private int phoneNumber;
 
-    private String pass;
+    private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
-    )
-    private Set<UserRole> roles = new HashSet<>();
+    private String nick;
 
-    public String getPass() {
-        return pass;
-    }
 
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    public Set<UserRole> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<UserRole> roles) {
-        this.roles = roles;
-    }
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.PERSIST)
+    private Set<UserRole> roles;
 
     @OneToMany
     private List<Treatment> treatment = new ArrayList<>();
 
 
     public User() {
-    }
-
-    public List<Treatment> getTreatment() {
-        return treatment;
-    }
-
-    public void setTreatment(List<Treatment> treatment) {
-        this.treatment = treatment;
     }
 
     public Long getId() {
@@ -76,16 +50,16 @@ public class User {
         return firstName;
     }
 
-    public void setFirstName(String first) {
-        this.firstName = first;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String last) {
-        this.lastName = last;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getMail() {
@@ -100,7 +74,39 @@ public class User {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phone) {
-        this.phoneNumber = phone;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<UserRole> roles) {
+        this.roles = roles;
+    }
+
+    public List<Treatment> getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(List<Treatment> treatment) {
+        this.treatment = treatment;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 }
