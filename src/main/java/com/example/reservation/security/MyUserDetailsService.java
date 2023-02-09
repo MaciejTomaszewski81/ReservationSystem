@@ -1,8 +1,6 @@
 package com.example.reservation.security;
 
-import com.example.reservation.user.User;
-import com.example.reservation.user.UserRepository;
-import com.example.reservation.user.UserRole;
+import com.example.reservation.user.*;
 import jakarta.transaction.Transactional;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,11 +21,33 @@ public class MyUserDetailsService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
+//  private UserService userService;
+//
+//    public MyUserDetailsService(UserService userService) {
+//        this.userService = userService;
+//    }
+
     @Transactional
     @Override
-    public UserDetails loadUserByUsername(String nick) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String nick) throws UsernameNotFoundException {
 
-        User user = userRepository.findByNick(nick);
+//        return userService.findUserByNick(nick)
+//                .map(this::createUserDetails)
+//                .orElseThrow(() -> new UsernameNotFoundException(String.format("User with nick %s not found", nick)));
+//
+//    }
+//
+//    private UserDetails createUserDetails(UserDto details){
+//    return User.builder()
+//            .username(details.getNick())
+//            .username(details.getPassword())
+//            .roles()
+//            .build();
+//    }
+//}
+
+
+        User user = userRepository.findUserByNick(nick);
         if(user == null)
             throw new UsernameNotFoundException("User not found");
         org.springframework.security.core.userdetails.User userDetails =

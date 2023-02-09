@@ -4,6 +4,7 @@ import com.example.reservation.treatment.TreatmentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -25,4 +26,20 @@ public class UserService {
     }
 
 //    public List<Treatment>findAll()
+    public Optional<UserDto>findUserByNick(String nick){
+        return userRepository.findByNick(nick)
+                .map(UserConverterToUserDto::map);
+    }
+
+//    List<String>findUserByRole(){
+//        return userRepository.findUsersByRoles("ROLE_ADMIN")
+//                .stream()
+//                .map(User::getRoles)
+//                .map(Enum::name)
+//                .toList();
+//    }
+    public void deleteUserByNick(String nick){
+        userRepository.deleteUserByNick(nick);
+    }
+
 }
