@@ -9,9 +9,10 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" 1>
 </head>
 <body>
+<div class="container">
 <div class="buttons">
-    <a href="/login" type="button" class="btn btn-outline-success">Zaloguj się</a>
-    <a type="button" class="btn btn-outline-success">Zarejestruj się</a>
+    <a href="#" th:href="@{/login}" type="button" class="btn btn-outline-success">Zaloguj się</a>
+    <a href="#" th:href="@{/register}"  type="button" class="btn btn-outline-success">Zarejestruj się</a>
     <a href="#" th:href="@{/admin}" type="button" class="btn btn-outline-success">Panel Admina</a>
     <div class="list-group">
         <ul>
@@ -23,6 +24,7 @@
             </ul>
         </ul>
     </div>
+</div>
 </div>
 </body>
 </html>

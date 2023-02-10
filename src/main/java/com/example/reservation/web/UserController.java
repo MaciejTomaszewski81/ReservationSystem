@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/add-user")
     public String addUser(){
-        return "adduser";
+        return "registration-confirm";
     }
 
     @PostMapping("/add-user")

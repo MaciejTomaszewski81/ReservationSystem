@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" 1>
+</head>
+<body>
+<div class="container">
+    <h1 class="login-header">Zarejestruj się</h1>
+    <i class="fa-solid fa-user-lock fa-10x"></i>
+    <form action="/register" method="post" class="login-form" th:object="${user}">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Imię</span>
+            <input type="text" th:field="*{firstName}" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default1">Nazwisko</span>
+            <input type="text" th:field="*{lastName}" name="lastName" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default2">Nick</span>
+            <input type="text" th:field="*{nick}" name="nick" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default3">Email</span>
+            <input th:field="*{mail}" name="mail" type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default4">Numer telefonu</span>
+            <input type="text" th:field="*{phoneNumber}" name="phoneNumber" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default5">Password</span>
+            <input type="password" th:field="*{password}" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <button type="submit" class="form-item">Zarejestruj się</button>
+
+    </form>
+</div>
+
+</body>
+</html>
