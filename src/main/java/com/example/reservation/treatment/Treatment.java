@@ -2,6 +2,7 @@ package com.example.reservation.treatment;
 
 
 import jakarta.persistence.*;
+
 @Entity
 public class Treatment {
 

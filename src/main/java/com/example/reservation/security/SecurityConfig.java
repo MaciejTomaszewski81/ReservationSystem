@@ -5,12 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.RequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -18,7 +16,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/", "/register","/styles/**").permitAll()
+                .requestMatchers("/", "/register", "/confirmation", "/styles/**").permitAll()
                 .requestMatchers((PathRequest.toH2Console())).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
                 .requestMatchers(new AntPathRequestMatcher("/user-panel/**")).hasRole("USER")
@@ -27,8 +25,7 @@ public class SecurityConfig {
         http.formLogin(login -> login
                 .loginPage("/login")
                 .defaultSuccessUrl("/home")
-                .permitAll()) ;
-//        http.formLogin(login -> login.loginPage("/login").permitAll());
+                .permitAll());
         http.logout()
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
@@ -43,5 +40,4 @@ public class SecurityConfig {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         return encoder;
     }
-
 }

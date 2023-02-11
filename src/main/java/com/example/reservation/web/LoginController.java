@@ -15,8 +15,8 @@ public class LoginController {
         this.treatmentService = treatmentService;
     }
 
-    @RequestMapping ("/login")
-    String loginForm(){
+    @RequestMapping("/login")
+    String loginForm() {
         return "login";
     }
 

@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class UserConverterToUserDto {
 
-    static UserDto map(User user){
+    static UserDto map(User user) {
         String nick = user.getNick();
         String pass = user.getPassword();
         Set<String> roles = user.getRoles()
@@ -13,7 +13,7 @@ public class UserConverterToUserDto {
                 .map(UserRole::getRole)
                 .map(Enum::name)
                 .collect(Collectors.toSet());
-        return new UserDto(nick,pass,roles);
+        return new UserDto(nick, pass, roles);
     }
 
 }

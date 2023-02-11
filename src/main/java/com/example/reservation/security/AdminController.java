@@ -23,16 +23,15 @@ public class AdminController {
     }
 
     @GetMapping
-    String adminPanel(Model model){
-        List<User>allUsers = userService.findAll();
+    String adminPanel(Model model) {
+        List<User> allUsers = userService.findAll();
         model.addAttribute("users", allUsers);
         return "admin";
     }
 
     @GetMapping("/delete-user")
-        String deleteUser(@RequestParam String nick){
+    String deleteUser(@RequestParam String nick) {
         userService.deleteUserByNick(nick);
         return "redirect:/admin";
     }
-
 }

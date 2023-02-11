@@ -1,7 +1,5 @@
 package com.example.reservation.user;
 
-import com.example.reservation.security.Role;
-
 import java.util.Set;
 
 public class UserDto {

@@ -45,26 +45,22 @@ public class MyUserDetailsService implements UserDetailsService {
 //            .build();
 //    }
 //}
-
-
         User user = userRepository.findUserByNick(nick);
-        if(user == null)
+        if (user == null)
             throw new UsernameNotFoundException("User not found");
         org.springframework.security.core.userdetails.User userDetails =
                 new org.springframework.security.core.userdetails.User(
                         user.getNick(),
                         user.getPassword(),
                         convertAuthorities(user.getRoles()));
-                        return userDetails;
+        return userDetails;
     }
 
     private Set<GrantedAuthority> convertAuthorities(Set<UserRole> roles) {
         Set<GrantedAuthority> authorities = new HashSet<>();
-        for (UserRole user: roles){
+        for (UserRole user : roles) {
             authorities.add(new SimpleGrantedAuthority(user.getRole().name()));
         }
         return authorities;
     }
-
-
 }

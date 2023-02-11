@@ -18,9 +18,9 @@ public class TreatmentController {
     }
 
     @GetMapping("/home")
-    public String allTreatments(Model model){
+    public String allTreatments(Model model) {
         String welcomeMessage = welcomeMessageService.getWelcomeMessage();
-        model.addAttribute("welcomeMessage",welcomeMessage);
+        model.addAttribute("welcomeMessage", welcomeMessage);
         model.addAttribute("treatment", treatmentService.showAll());
         return "home";
     }

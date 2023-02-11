@@ -13,7 +13,7 @@ public class TreatmentService {
         this.treatmentRepository = treatmentRepository;
     }
 
-    public List<Treatment> showAll(){
+    public List<Treatment> showAll() {
         return treatmentRepository.findAll();
     }
 }

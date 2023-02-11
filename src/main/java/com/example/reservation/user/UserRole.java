@@ -2,6 +2,7 @@ package com.example.reservation.user;
 
 import com.example.reservation.security.Role;
 import jakarta.persistence.*;
+
 @Entity
 public class UserRole {
 

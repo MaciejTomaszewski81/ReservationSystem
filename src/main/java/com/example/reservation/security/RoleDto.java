@@ -55,8 +55,7 @@ public class RoleDto {
         Set<UserRole> roles = user.getRoles();
         boolean match = roles.stream()
                 .anyMatch(userRole -> userRole.getRole().name().equals(ROLE_ADMIN.name()));
-            return match;
+        return match;
 
     }
-
 }

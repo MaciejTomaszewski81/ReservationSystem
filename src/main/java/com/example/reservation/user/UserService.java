@@ -29,33 +29,33 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User addUser(User user){
-    return userRepository.save(user);
+    public User addUser(User user) {
+        return userRepository.save(user);
     }
 
-    public List<User>findAll(){
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
-//    public List<Treatment>findAll()
-    public Optional<UserDto>findUserByNick(String nick){
+    //    public List<Treatment>findAll()
+    public Optional<UserDto> findUserByNick(String nick) {
         return userRepository.findByNick(nick)
                 .map(UserConverterToUserDto::map);
     }
 
-//    List<String>findUserByRole(){
+    //    List<String>findUserByRole(){
 //        return userRepository.findUsersByRoles("ROLE_ADMIN")
 //                .stream()
 //                .map(User::getRoles)
 //                .map(Enum::name)
 //                .toList();
 //    }
-    public void deleteUserByNick(String nick){
+    public void deleteUserByNick(String nick) {
         userRepository.deleteUserByNick(nick);
     }
 
     @Transactional
-    public void registerUser(UserRegistrationDto registration){
+    public void registerUser(UserRegistrationDto registration) {
         User user = new User();
         user.setFirstName(registration.getFirstName());
         user.setLastName(registration.getLastName());
@@ -66,7 +66,5 @@ public class UserService {
         List<UserRole> list = Collections.singletonList(new UserRole(user, Role.ROLE_USER));
         user.setRoles(new HashSet<>(list));
         userRepository.save(user);
-
     }
-
 }
