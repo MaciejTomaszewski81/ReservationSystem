@@ -28,7 +28,7 @@ public class User {
     private String nick;
 
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     private Set<UserRole> roles;
 
     @OneToMany

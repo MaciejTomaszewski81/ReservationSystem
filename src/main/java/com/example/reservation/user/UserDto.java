@@ -10,8 +10,6 @@ public class UserDto {
 
     private final String password;
 
-//    private boolean administrationAccess;
-
     private final Set<String> roles;
 
     public UserDto(String nick, String password, Set<String> roles) {

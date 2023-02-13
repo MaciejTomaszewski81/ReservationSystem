@@ -21,30 +21,10 @@ public class MyUserDetailsService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-//  private UserService userService;
-//
-//    public MyUserDetailsService(UserService userService) {
-//        this.userService = userService;
-//    }
-
     @Transactional
     @Override
     public UserDetails loadUserByUsername(String nick) throws UsernameNotFoundException {
 
-//        return userService.findUserByNick(nick)
-//                .map(this::createUserDetails)
-//                .orElseThrow(() -> new UsernameNotFoundException(String.format("User with nick %s not found", nick)));
-//
-//    }
-//
-//    private UserDetails createUserDetails(UserDto details){
-//    return User.builder()
-//            .username(details.getNick())
-//            .username(details.getPassword())
-//            .roles()
-//            .build();
-//    }
-//}
         User user = userRepository.findUserByNick(nick);
         if (user == null)
             throw new UsernameNotFoundException("User not found");
