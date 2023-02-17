@@ -24,4 +24,15 @@ public class TreatmentController {
         model.addAttribute("treatment", treatmentService.showAll());
         return "home";
     }
+
+    @GetMapping("/reservation")
+    public String reservationPanel(){
+        return "/reservation";
+    }
+
+    @GetMapping("/user-panel")
+    public String userPanel(){
+        return "/user-panel";
+    }
+
 }

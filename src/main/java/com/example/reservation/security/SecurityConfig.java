@@ -3,6 +3,7 @@ package com.example.reservation.security;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -26,12 +27,14 @@ public class SecurityConfig {
                 .loginPage("/login")
                 .defaultSuccessUrl("/home")
                 .permitAll());
-        http.logout()
+        http.logout(logout -> logout
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name()))
                 .logoutSuccessUrl("/")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
-        http.csrf().disable();
+                .deleteCookies("JSESSIONID")
+        );
         http.headers().frameOptions().sameOrigin();
+        http.logout(logout -> logout
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout/**", HttpMethod.GET.name())));
         return http.build();
     }
 

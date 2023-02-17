@@ -58,4 +58,12 @@ public class UserService {
                 .filter(user -> !user.getNick().equals(userName.getName()))
                 .collect(Collectors.toList());
     }
+
+    @Transactional
+    public void changePassword(String newPassword){
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+        User currentUser = userRepository.findUserByNick(userName);
+        String newPasswordHash = passwordEncoder.encode(newPassword);
+        currentUser.setPassword(newPasswordHash);
+    }
 }

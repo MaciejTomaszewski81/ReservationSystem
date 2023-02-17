@@ -16,14 +16,17 @@
         <ul>
             <ul class="list-group-item d-flex justify-content-between align-items-center"
                 th:each="user : ${users}">
-                <span th:text="${user.nick}">jan@kowalski.com</span>
+                <span th:text="${user.nick}">Ziltoid</span>
                 <span th:text="${user.mail}">jan@kowalski.com</span>
-                <span th:text="${user.firstName}">jan@kowalski.com</span>
-                <span th:text="${user.lastName}">jan@kowalski.com</span>
+                <span th:text="${user.firstName}">Stefan</span>
+                <span th:text="${user.lastName}">Batory</span>
                 <a href="#" th:href="|/admin/deleteUser/${user.id}|">Usuń</a>
             </ul>
         </ul>
     </div>
+</div>
+<div>
+    <a th:href="@{/home}">Wróć do strony główniej</a>
 </div>
 <div>
     <a th:href="@{/logout}">wyloguj się</a>

@@ -5,10 +5,7 @@ import com.example.reservation.user.User;
 import com.example.reservation.user.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,11 @@ public class AdminController {
         return "admin";
     }
 
+    @PostMapping("/change-password")
+    String changePassword(@RequestParam String newPassword){
+       userService.changePassword(newPassword);
+       return "redirect:/index";
+    }
 //    @GetMapping("/delete-user")
 //    String deleteUser(@RequestParam String nick) {
 //        userService.deleteUserByNick(nick);
@@ -41,10 +43,4 @@ public class AdminController {
         userService.deleteUserById(id);
         return "redirect:/admin";
     }
-
-//    @GetMapping("/deleteUser")
-//    String deleteUser(@RequestParam String mail){
-//        userService.deleteUserByEmail(mail);
-//        return"redirect:/admin";
-//    }
 }

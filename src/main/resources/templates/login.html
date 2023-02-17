@@ -14,7 +14,7 @@
 <div class="container">
     <h1 class="login-header">Zaloguj się</h1>
     <i class="fa-solid fa-user-lock fa-10x"></i>
-    <form action="/login" method="post" class="login-form">
+    <form th:action="@{/login}" method="post" class="login-form">
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Login</span>
             <input type="text" name="username" class="form-control" aria-label="Sizing example input"

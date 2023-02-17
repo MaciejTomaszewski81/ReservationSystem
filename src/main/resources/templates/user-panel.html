@@ -8,7 +8,17 @@
     <link rel="stylesheet" href="../static/styles/style.css" th:href="@{/styles/style.css}"/>
 </head>
 <body>
-<p>Yeah reservation page</p>
+<p>Panel użytkownika</p>
+<div>
+    <form action="/change-password" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default5">Nowe hasło</span>
+            <input type="password"  name="newPassword" class="form-control"
+                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <button type="submit">Zmień</button>
+        </div>
+    </form>
+</div>
 <div>
     <a th:href="@{/home}">Wróć do strony główniej</a>
 </div>
